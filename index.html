@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>top.gg — Seller Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">▲</span>
+      <span class="logo-text">top<span class="logo-dot">.gg</span></span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" data-section="overview">
+        <span class="nav-icon">⬡</span>
+        <span>Overview</span>
+      </a>
+      <a href="#" class="nav-item" data-section="products">
+        <span class="nav-icon">◈</span>
+        <span>Products</span>
+      </a>
+      <a href="#" class="nav-item" data-section="bidding">
+        <span class="nav-icon">◎</span>
+        <span>Live Bidding</span>
+        <span class="nav-badge">1</span>
+      </a>
+      <a href="#" class="nav-item" data-section="analytics">
+        <span class="nav-icon">◻</span>
+        <span>Analytics</span>
+      </a>
+      <a href="#" class="nav-item" data-section="orders">
+        <span class="nav-icon">◷</span>
+        <span>Orders</span>
+        <span class="nav-badge pending">3</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="seller-mini">
+        <div class="seller-avatar">8B</div>
+        <div class="seller-meta">
+          <div class="seller-mini-name">8BiT Softworks</div>
+          <div class="seller-mini-status"><span class="status-dot"></span>Active Seller</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MOBILE HEADER -->
+  <header class="mobile-header">
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <span class="mobile-logo">top<span class="logo-dot">.gg</span></span>
+    <div class="seller-avatar sm">8B</div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main" id="main">
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+      <div class="page-header-left">
+        <div class="breadcrumb">Dashboard <span>/ Overview</span></div>
+        <h1 class="page-title">Seller Dashboard</h1>
+      </div>
+      <div class="page-header-right">
+        <div class="header-seller-card">
+          <div class="seller-avatar lg">8B</div>
+          <div>
+            <div class="header-seller-name">8BiT Softworks</div>
+            <div class="header-seller-stats">
+              <span class="stars-display">★★★★<span class="half-star">★</span> 4.7</span>
+              <span class="stat-divider">·</span>
+              <span class="header-sales">21 sales</span>
+            </div>
+          </div>
+          <div class="header-revenue">
+            <div class="revenue-label">Total Revenue</div>
+            <div class="revenue-value">$23,880</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW CARDS -->
+    <section class="cards-grid">
+      <div class="card card--stat">
+        <div class="card-label">Total Products</div>
+        <div class="card-value">12</div>
+        <div class="card-change positive">+2 this month</div>
+        <div class="card-bg-icon">◈</div>
+      </div>
+      <div class="card card--stat">
+        <div class="card-label">Active Listings</div>
+        <div class="card-value">8</div>
+        <div class="card-change positive">All verified</div>
+        <div class="card-bg-icon">⬡</div>
+      </div>
+      <div class="card card--stat card--pending">
+        <div class="card-label">Pending Orders</div>
+        <div class="card-value">3</div>
+        <div class="card-change warning">Needs review</div>
+        <div class="card-bg-icon">◷</div>
+      </div>
+      <div class="card card--stat">
+        <div class="card-label">Completed Sales</div>
+        <div class="card-value">21</div>
+        <div class="card-change positive">+5 this month</div>
+        <div class="card-bg-icon">◎</div>
+      </div>
+      <div class="card card--stat card--revenue">
+        <div class="card-label">Total Revenue</div>
+        <div class="card-value card-value--large">$23,880</div>
+        <div class="card-change positive">↑ 18% vs last month</div>
+        <div class="card-bg-icon">$</div>
+      </div>
+    </section>
+
+    <!-- TWO-COLUMN LAYOUT: Products + Bidding -->
+    <div class="dual-col">
+
+      <!-- SOLD PRODUCTS TABLE -->
+      <section class="panel" id="products-panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Sold Products</h2>
+          <button class="btn-ghost btn-sm">View All →</button>
+        </div>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="product-name">ModBot Pro</span></td>
+                <td><span class="category-tag bot">Discord Bot</span></td>
+                <td class="price-cell">$4,200</td>
+                <td><span class="status-badge completed">Completed</span></td>
+                <td class="date-cell">Apr 10, 2026</td>
+              </tr>
+              <tr>
+                <td><span class="product-name">NexaStore Theme</span></td>
+                <td><span class="category-tag web">Prebuilt Website</span></td>
+                <td class="price-cell">$890</td>
+                <td><span class="status-badge completed">Completed</span></td>
+                <td class="date-cell">Apr 07, 2026</td>
+              </tr>
+              <tr>
+                <td><span class="product-name">AstroChat AI</span></td>
+                <td><span class="category-tag chatbot">Chatbot</span></td>
+                <td class="price-cell">$3,100</td>
+                <td><span class="status-badge completed">Completed</span></td>
+                <td class="date-cell">Mar 28, 2026</td>
+              </tr>
+              <tr>
+                <td><span class="product-name">EventSync Bot</span></td>
+                <td><span class="category-tag bot">Discord Bot</span></td>
+                <td class="price-cell">$1,750</td>
+                <td><span class="status-badge pending">Pending</span></td>
+                <td class="date-cell">Mar 22, 2026</td>
+              </tr>
+              <tr>
+                <td><span class="product-name">PortfolioKit</span></td>
+                <td><span class="category-tag web">Prebuilt Website</span></td>
+                <td class="price-cell">$560</td>
+                <td><span class="status-badge completed">Completed</span></td>
+                <td class="date-cell">Mar 15, 2026</td>
+              </tr>
+              <tr>
+                <td><span class="product-name">OmniSupport AI</span></td>
+                <td><span class="category-tag chatbot">Chatbot</span></td>
+                <td class="price-cell">$2,400</td>
+                <td><span class="status-badge pending">Pending</span></td>
+                <td class="date-cell">Mar 09, 2026</td>
+              </tr>
+              <tr>
+                <td><span class="product-name">RoleGuard Bot</span></td>
+                <td><span class="category-tag bot">Discord Bot</span></td>
+                <td class="price-cell">$980</td>
+                <td><span class="status-badge completed">Completed</span></td>
+                <td class="date-cell">Feb 28, 2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: Bidding + Actions -->
+      <div class="right-col">
+
+        <!-- LIVE BIDDING -->
+        <section class="panel panel--bidding" id="bidding-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Live Bidding</h2>
+            <span class="live-badge"><span class="live-dot"></span>LIVE</span>
+          </div>
+
+          <div class="bid-product-name">QuizBot : Discord Edition</div>
+
+          <div class="bid-price-row">
+            <div class="bid-price-block">
+              <div class="bid-price-label">Asking Price</div>
+              <div class="bid-price-value asking">$1,200</div>
+            </div>
+            <div class="bid-price-block">
+              <div class="bid-price-label">Starting Bid</div>
+              <div class="bid-price-value starting">$560</div>
+            </div>
+          </div>
+
+          <div class="current-bid-container">
+            <div class="current-bid-label">Current Highest Bid</div>
+            <div class="current-bid-value">$755</div>
+            <div class="current-bid-status">↑ $195 above starting bid</div>
+          </div>
+
+          <div class="progress-section">
+            <div class="progress-labels">
+              <span>$560 start</span>
+              <span class="progress-pct" id="bidPct">62.9% to asking</span>
+              <span>$1,200 goal</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="bidProgress" style="width: 0%"></div>
+              <div class="progress-marker" id="bidMarker" style="left: 0%"></div>
+            </div>
+          </div>
+
+          <div class="bid-meta">
+            <div class="bid-meta-item">
+              <span class="bid-meta-label">Status</span>
+              <span class="bid-meta-val active-bidding">Active Bidding</span>
+            </div>
+            <div class="bid-meta-item">
+              <span class="bid-meta-label">Bids placed</span>
+              <span class="bid-meta-val">7</span>
+            </div>
+            <div class="bid-meta-item">
+              <span class="bid-meta-label">Time left</span>
+              <span class="bid-meta-val countdown" id="countdown">23:41:08</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ACTIONS PANEL -->
+        <section class="panel panel--actions">
+          <div class="panel-header">
+            <h2 class="panel-title">Quick Actions</h2>
+          </div>
+          <div class="actions-grid">
+            <button class="action-btn action-btn--primary">
+              <span class="action-icon">+</span>
+              <span class="action-label">Add Product</span>
+            </button>
+            <button class="action-btn">
+              <span class="action-icon">◈</span>
+              <span class="action-label">Manage Listings</span>
+            </button>
+            <button class="action-btn">
+              <span class="action-icon">◷</span>
+              <span class="action-label">View Orders</span>
+              <span class="action-badge">3</span>
+            </button>
+            <button class="action-btn action-btn--earn">
+              <span class="action-icon">↑</span>
+              <span class="action-label">Withdraw Earnings</span>
+            </button>
+          </div>
+        </section>
+
+      </div><!-- /right-col -->
+    </div><!-- /dual-col -->
+
+    <!-- ANALYTICS -->
+    <section class="analytics-section" id="analytics-panel">
+      <div class="panel-header analytics-header">
+        <h2 class="panel-title">Analytics</h2>
+        <div class="analytics-tabs">
+          <button class="tab-btn active" data-tab="revenue">Revenue</button>
+          <button class="tab-btn" data-tab="sales">Sales</button>
+          <button class="tab-btn" data-tab="category">Categories</button>
+        </div>
+      </div>
+
+      <div class="analytics-grid">
+        <div class="chart-panel chart-panel--main" id="mainChartPanel">
+          <div class="chart-panel-label" id="mainChartLabel">Revenue Over Time</div>
+          <div class="chart-container">
+            <canvas id="mainChart"></canvas>
+          </div>
+        </div>
+        <div class="chart-panel chart-panel--side">
+          <div class="chart-panel-label">Category Performance</div>
+          <div class="chart-container chart-container--doughnut">
+            <canvas id="categoryChart"></canvas>
+          </div>
+          <div class="category-legend" id="categoryLegend"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- OVERLAY for mobile sidebar -->
+  <div class="overlay" id="overlay"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
